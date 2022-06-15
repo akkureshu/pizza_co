@@ -53,11 +53,7 @@ Widget customText(String text, Color textColor, double size, fontWeight,
     text,
     textAlign: align,
     maxLines: maxLine,
-    style: TextStyle(
-      color: textColor,
-      fontSize: size,
-      fontWeight: fontWeight,
-    ),
+    style: TextStyle(color: textColor, fontSize: size, fontWeight: fontWeight),
   );
 }
 

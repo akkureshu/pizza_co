@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+
 import 'package:pizza_co/BottomTab/categories_screen.dart';
 import 'package:pizza_co/BottomTab/home_screen.dart';
 import 'package:pizza_co/BottomTab/more_screen.dart';
@@ -34,7 +34,7 @@ class _MytabBar extends State<MytabBar> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _showAddDialog();
+      //  _showAddDialog();
     });
   }
 
@@ -131,58 +131,59 @@ class _MytabBar extends State<MytabBar> {
     );
   }
 
-  void _showAddDialog() {
-    Get.dialog(
-      AlertDialog(
-        insetPadding: EdgeInsets.zero,
-        contentPadding: EdgeInsets.zero,
-        titlePadding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.r),
-        ),
-        content: Container(
-          height: 360.h,
-          width: 328.w,
-          decoration: BoxDecoration(
-            color: kPrimaryColor.withOpacity(.5),
-            borderRadius: BorderRadius.circular(6.r),
-            border: Border.all(width: 1, color: const Color(0xFF707070)),
-          ),
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(6.r),
-                child: Image.asset(
-                  "assets/images/pop.png",
-                  fit: BoxFit.fitHeight,
-                  height: 360.h,
-                ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: InkWell(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(right: 15.w, top: 15.h),
-                    padding: EdgeInsets.all(8.r),
-                    width: 28.w,
-                    height: 28.h,
-                    decoration: BoxDecoration(
-                        color: white.withOpacity(.5),
-                        borderRadius: BorderRadius.circular(50.r)),
-                    child: SvgPicture.asset(
-                      close,
-                      color: const Color(0xFF212121),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  // void _showAddDialog() {
+  //   Get.dialog(
+  //     AlertDialog(
+  //       insetPadding: EdgeInsets.zero,
+  //       contentPadding: EdgeInsets.zero,
+  //       titlePadding: EdgeInsets.zero,
+  //       shape: RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.circular(6.r),
+  //       ),
+  //       content: Container(
+  //         height: 360.h,
+  //         width: 328.w,
+  //         decoration: BoxDecoration(
+  //           color: kPrimaryColor.withOpacity(.5),
+  //           borderRadius: BorderRadius.circular(6.r),
+  //           border: Border.all(width: 1, color: const Color(0xFF707070)),
+  //         ),
+  //         child: Stack(
+  //           children: [
+  //             ClipRRect(
+  //               borderRadius: BorderRadius.circular(6.r),
+  //               child: Image.asset(
+  //                 "assets/images/pop.png",
+  //                 fit: BoxFit.fitHeight,
+  //                 height: 360.h,
+  //               ),
+  //             ),
+  //             Align(
+  //               alignment: Alignment.topRight,
+  //               child: InkWell(
+  //                 onTap: () {
+  //                   Get.back();
+  //                 },
+  //                 child: Container(
+  //                   margin: EdgeInsets.only(right: 15.w, top: 15.h),
+  //                   padding: EdgeInsets.all(8.r),
+  //                   width: 28.w,
+  //                   height: 28.h,
+  //                   decoration: BoxDecoration(
+  //                       color: white.withOpacity(.5),
+  //                       borderRadius: BorderRadius.circular(50.r)),
+  //                   child: SvgPicture.asset(
+  //                     close,
+  //                     color: const Color(0xFF212121),
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
+
 }

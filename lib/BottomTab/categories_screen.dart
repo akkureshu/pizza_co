@@ -1,206 +1,327 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pizza_co/components/default_button.dart';
 
 import 'package:pizza_co/components/my_drawer.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/product_deatil.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
+  final List<ProModals> _mlist = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _mlist.add(
+      ProModals(
+          image:
+              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-01.jpg',
+          title: 'Margherita',
+          category: 'BURGERS (HAND MADE).',
+          dec:
+              'Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing like.',
+          amonnt: '20.99'),
+    );
+    _mlist.add(
+      ProModals(
+          image:
+              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-02.jpg',
+          title: 'Vegetarian',
+          dec:
+              'Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing',
+          amonnt: '20.99'),
+    );
+    _mlist.add(
+      ProModals(
+          image:
+              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-03.jpg',
+          title: 'Texas BBQ Chicken',
+          category: 'BURGERS (HAND MADE).',
+          dec:
+              'Lorem Ipsum passages, and more recently with desktop publishing like.',
+          amonnt: '20.99'),
+    );
+    _mlist.add(
+      ProModals(
+          image:
+              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-04.jpg',
+          title: 'Pepperoni',
+          dec:
+              'Lorem Ipsum passages, and more recently with desktop publishing like.',
+          amonnt: '20.99'),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: customText("Categories", kTextColor, 13.sp, FontWeight.w500),
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.shopping_cart,
+                    size: 20,
+                    color: Color(0xFF212121),
+                  )),
+              Positioned(
+                right: 10,
+                top: 4,
+                child: Container(
+                  width: 15.w,
+                  height: 15.w,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.r),
+                      color: kPrimaryColor),
+                  child: Center(
+                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
       drawer: const MyDrawer(),
       body: SafeArea(
-          child: DefaultTabController(
-              length: 9,
-              child: Column(
-                children: [
-                  Container(
-                    color: kPrimaryColor,
-                    child: TabBar(
-                        isScrollable: true,
-                        labelColor: white,
-                        unselectedLabelColor: const Color(0xFF505050),
-                        indicatorColor: const Color.fromARGB(255, 85, 112, 37),
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 13.sp),
-                        unselectedLabelStyle: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 13.sp),
-                        tabs: [
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/offer.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Todays Offer'),
-                              ],
+        child: DefaultTabController(
+          length: 9,
+          child: Column(
+            children: [
+              Container(
+                color: kPrimaryColor,
+                child: TabBar(
+                    isScrollable: true,
+                    labelColor: white,
+                    unselectedLabelColor: const Color(0xFF505050),
+                    indicatorColor: const Color.fromARGB(255, 85, 112, 37),
+                    labelStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 13.sp),
+                    unselectedLabelStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 13.sp),
+                    tabs: [
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/offer.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Todays Offer'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/deals.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Meal Deals'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/pizza.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Pizza'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/breads.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Garlic Breads'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/burgers.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Burger'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/pizza.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Parmo'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/kebabs.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Kebabs'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/desserts.png",
+                                width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Desserts'),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icon/drink.png", width: 20.w),
+                            SizedBox(width: 5.w),
+                            const Text('Drinks'),
+                          ],
+                        ),
+                      ),
+                    ]),
+              ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(
+                                left: 16.w, right: 16.w, top: 16.h),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 1, color: const Color(0xFFCCCCCC)),
+                              borderRadius: BorderRadius.circular(5.r),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.r),
+                              child: CachedNetworkImage(
+                                  width: double.infinity,
+                                  height: 300.h,
+                                  fit: BoxFit.fitWidth,
+                                  imageUrl:
+                                      'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/banner/banner-01.jpg'),
                             ),
                           ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/deals.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Meal Deals'),
-                              ],
+                          Container(
+                            margin: EdgeInsets.only(
+                                left: 16.w, right: 16.w, top: 16.h),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 1, color: const Color(0xFFCCCCCC)),
+                              borderRadius: BorderRadius.circular(5.r),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.r),
+                              child: CachedNetworkImage(
+                                  width: double.infinity,
+                                  height: 300.h,
+                                  fit: BoxFit.cover,
+                                  imageUrl:
+                                      'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/banner/banner-01.jpg'),
                             ),
                           ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/pizza.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Pizza'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/breads.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Garlic Breads'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/burgers.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Burger'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/pizza.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Parmo'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/kebabs.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Kebabs'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/desserts.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Desserts'),
-                              ],
-                            ),
-                          ),
-                          Tab(
-                            child: Row(
-                              children: [
-                                Image.asset("assets/icon/drink.png",
-                                    width: 20.w),
-                                SizedBox(width: 5.w),
-                                const Text('Drinks'),
-                              ],
-                            ),
-                          ),
-                        ]),
-                  ),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                        ListView.builder(
-                            padding: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return productItem();
-                            }),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ))),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Get.to(() => ProductDeatil(item: _mlist[index]));
+                            },
+                            child: productItem(_mlist[index].title,
+                                _mlist[index].dec, _mlist[index].image),
+                          );
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                    ListView.builder(
+                        padding:
+                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                        itemCount: _mlist.length,
+                        itemBuilder: (context, index) {
+                          return productItem(_mlist[index].title,
+                              _mlist[index].dec, _mlist[index].image);
+                        }),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
-  Widget productItem() {
+  Widget productItem(String title, dec, images) {
     return Container(
-        margin: EdgeInsets.only(bottom: 10.h),
+        margin: EdgeInsets.only(bottom: 15.h),
         decoration: BoxDecoration(
           border: Border.all(width: 1, color: const Color(0xFFCCCCCC)),
           borderRadius: BorderRadius.circular(5.r),
@@ -208,32 +329,34 @@ class CategoriesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+          
             ClipRRect(
-              borderRadius: BorderRadius.circular(6.r),
-              child: Image.asset(
-                "assets/images/pizza-01.jpeg",
-                width: .9.sw,
-                height: 120.h,
-                fit: BoxFit.cover,
-              ),
+              borderRadius: BorderRadius.circular(5.r),
+              child: CachedNetworkImage(
+                  height: 130.h,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                  imageUrl: images),
             ),
-            SizedBox(height: 15.h),
             Padding(
-              padding: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 16.h),
+              padding: EdgeInsets.only(
+                  top: 10.h, left: 10.w, right: 10.w, bottom: 0.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  customText("Margherita", kTextColor, 14.sp, FontWeight.w500),
+                  customText(title, kTextColor, 14.sp, FontWeight.w500),
                   SizedBox(height: 5.h),
                   customText(
-                      "Lorem Ipsum passages, and more recently with desktop publishing like.",
-                      kTextMedium,
-                      12.sp,
-                      FontWeight.w400,
-                      maxLine: 2),
-                  SizedBox(height: 12.h),
+                    dec,
+                    kTextMedium,
+                    12.sp,
+                    FontWeight.w400,
+                    maxLine: 1,
+                  ),
+                  SizedBox(height: 5.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       customText("£20.99", const Color(0xFF212121), 15.sp,
                           FontWeight.w700),
@@ -248,6 +371,16 @@ class CategoriesScreen extends StatelessWidget {
   }
 }
 
+class ProModals {
+  String title, dec, amonnt;
+  String? image, category;
+  ProModals(
+      {this.image,
+      required this.title,
+      required this.dec,
+      required this.amonnt,
+      this.category});
+}
 
 
 
