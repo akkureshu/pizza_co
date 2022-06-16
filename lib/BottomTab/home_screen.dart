@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: customText("Home", kTextColor, 13.sp, FontWeight.w500),
+        title: customText("Home", white, 13.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
-                    color: Color(0xFF212121),
+                    color: white,
                   )),
               Positioned(
                 right: 10,
@@ -88,10 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 15.w,
                   height: 15.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      color: kPrimaryColor),
+                      borderRadius: BorderRadius.circular(50.r), color: white),
                   child: Center(
-                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
                 ),
               )
             ],
@@ -101,455 +101,447 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: const MyDrawer(),
       body: SafeArea(
           child: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 12.h),
-              SizedBox(
-                height: 90.h,
-                child: ListView.builder(
-                    itemCount: categorydata.length,
-                    padding: EdgeInsets.only(left: 18.w),
-                    shrinkWrap: false,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) {
-                      return Container(
-                        margin: EdgeInsets.only(right: 18.w),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Column(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(6.r),
-                                child: Image.asset(
-                                  categorydata[index]["image"]!,
-                                  width: 60.w,
-                                  height: 60.w,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              SizedBox(height: 6.h),
-                              customText(
-                                  categorydata[index]["title"]!,
-                                  const Color(0xFF4B4B4B),
-                                  10.sp,
-                                  FontWeight.w500)
-                            ],
-                          ),
-                        ),
-                      );
-                    })),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.w),
-                child: customText(
-                    'Best Offers', kTextColor, 18.sp, FontWeight.w500),
-              ),
-              SizedBox(height: 16.h),
-              SizedBox(
-                height: 200.h,
-                child: ListView.builder(
-                    itemCount: _images.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.only(
-                        left: 18.w, right: 0, top: 0, bottom: 0),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: ((context, index) {
-                      return InkWell(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 12.h),
+            SizedBox(
+              height: 90.h,
+              child: ListView.builder(
+                  itemCount: categorydata.length,
+                  padding: EdgeInsets.only(left: 14.w),
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: ((context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 14.w),
+                      child: InkWell(
                         onTap: () {},
-                        child: Container(
-                          width: .6.sw,
-                          margin: EdgeInsets.only(right: 18.w),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(6.r),
-                            child: Image.asset(
-                              _images[index],
-                              width: 300.w,
-                              height: 160.h,
-                              fit: BoxFit.fill,
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(6.r),
+                              child: Image.asset(
+                                categorydata[index]["image"]!,
+                                width: 60.w,
+                                height: 60.w,
+                                fit: BoxFit.fill,
+                              ),
                             ),
+                            SizedBox(height: 6.h),
+                            customText(categorydata[index]["title"]!,
+                                const Color(0xFF4B4B4B), 10.sp, FontWeight.w500)
+                          ],
+                        ),
+                      ),
+                    );
+                  })),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 14.w),
+              child:
+                  customText('Best Offers', kTextColor, 18.sp, FontWeight.w500),
+            ),
+            SizedBox(height: 16.h),
+            SizedBox(
+              height: 200.h,
+              child: ListView.builder(
+                  itemCount: _images.length,
+                  shrinkWrap: true,
+                  padding:
+                      EdgeInsets.only(left: 14.w, right: 0, top: 0, bottom: 0),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: ((context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: .6.sw,
+                        margin: EdgeInsets.only(right: 18.w),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6.r),
+                          child: Image.asset(
+                            _images[index],
+                            width: 300.w,
+                            height: 160.h,
+                            fit: BoxFit.fill,
                           ),
                         ),
-                      );
-                    })),
-              ),
-              SizedBox(height: 12.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.w),
-                child: customText(
-                    'Our Location', kTextColor, 18.sp, FontWeight.w500),
-              ),
-              SizedBox(height: 10.h),
-              Container(
-                margin: EdgeInsets.only(right: 18.w, left: 18.w, bottom: 24.h),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.r),
-                  border: Border.all(
-                    width: 1,
-                    color: const Color(0xFFF1F1F1),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(6),
-                          topRight: Radius.circular(6)),
-                      child: Image.asset('assets/images/restaurant-01.jpg',
-                          width: 1.sw, height: 131.h, fit: BoxFit.fill),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          customText("Thornaby Branch:", kTextColor, 15.sp,
-                              FontWeight.w500),
-                          SizedBox(height: 6.h),
-                          customText(
-                              "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
-                              kTextMedium,
-                              12.sp,
-                              FontWeight.w400),
-                          SizedBox(height: 6.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(staricon,
-                                      color: kPrimaryColor, width: 10.w),
-                                  SizedBox(width: 5.w),
-                                  customText("5.0", kTextMedium, 11.sp,
-                                      FontWeight.w500),
-                                  SizedBox(width: 3.w),
-                                  customText("(1024)", const Color(0xFFABABAB),
-                                      11.sp, FontWeight.w500),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(timeicon,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("20 mins", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(locationpin,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("1.3 km", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    walkicon,
-                                    color: kPrimaryColor,
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  SvgPicture.asset(caricon,
-                                      color: kPrimaryColor)
-                                ],
-                              )
-                            ],
-                          )
-                        ],
                       ),
-                    )
-                  ],
+                    );
+                  })),
+            ),
+            SizedBox(height: 12.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 14.w),
+              child: customText(
+                  'Our Location', kTextColor, 18.sp, FontWeight.w500),
+            ),
+            SizedBox(height: 10.h),
+            Container(
+              margin: EdgeInsets.only(right: 14.w, left: 14.w, bottom: 18.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6.r),
+                border: Border.all(
+                  width: 1,
+                  color: const Color(0xFFF1F1F1),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(right: 18.w, left: 18.w, bottom: 24.h),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.r),
-                  border: Border.all(
-                    width: 1,
-                    color: const Color(0xFFF1F1F1),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(6),
+                        topRight: Radius.circular(6)),
+                    child: Image.asset('assets/images/restaurant-01.jpg',
+                        width: 1.sw, height: 131.h, fit: BoxFit.fill),
                   ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(6),
-                          topRight: Radius.circular(6)),
-                      child: Image.asset("assets/images/restaurant-02.jpg",
-                          width: 1.sw, height: 131.h, fit: BoxFit.fill),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        customText("Thornaby Branch:", kTextColor, 15.sp,
+                            FontWeight.w500),
+                        SizedBox(height: 6.h),
+                        customText(
+                            "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
+                            kTextMedium,
+                            12.sp,
+                            FontWeight.w400),
+                        SizedBox(height: 6.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(staricon,
+                                    color: kPrimaryColor, width: 10.w),
+                                SizedBox(width: 5.w),
+                                customText(
+                                    "5.0", kTextMedium, 11.sp, FontWeight.w500),
+                                SizedBox(width: 3.w),
+                                customText("(1024)", const Color(0xFFABABAB),
+                                    11.sp, FontWeight.w500),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(timeicon,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("20 mins", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(locationpin,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("1.3 km", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  walkicon,
+                                  color: kPrimaryColor,
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(caricon, color: kPrimaryColor)
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          customText("Thornaby Branch:", kTextColor, 15.sp,
-                              FontWeight.w500),
-                          SizedBox(height: 6.h),
-                          customText(
-                              "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
-                              kTextMedium,
-                              12.sp,
-                              FontWeight.w400),
-                          SizedBox(height: 6.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(staricon,
-                                      color: kPrimaryColor, width: 10.w),
-                                  SizedBox(width: 5.w),
-                                  customText("5.0", kTextMedium, 11.sp,
-                                      FontWeight.w500),
-                                  SizedBox(width: 3.w),
-                                  customText("(1024)", const Color(0xFFABABAB),
-                                      11.sp, FontWeight.w500),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(timeicon,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("20 mins", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(locationpin,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("1.3 km", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    walkicon,
-                                    color: kPrimaryColor,
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  SvgPicture.asset(caricon,
-                                      color: kPrimaryColor)
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 14.w, left: 14.w, bottom: 18.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6.r),
+                border: Border.all(
+                  width: 1,
+                  color: const Color(0xFFF1F1F1),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(right: 18.w, left: 18.w, bottom: 24.h),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6.r),
-                  border: Border.all(
-                    width: 1,
-                    color: const Color(0xFFF1F1F1),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(6),
+                        topRight: Radius.circular(6)),
+                    child: Image.asset("assets/images/restaurant-02.jpg",
+                        width: 1.sw, height: 131.h, fit: BoxFit.fill),
                   ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(6),
-                          topRight: Radius.circular(6)),
-                      child: Image.asset('assets/images/restaurant-03.jpg',
-                          width: 1.sw, height: 131.h, fit: BoxFit.fill),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        customText("Thornaby Branch:", kTextColor, 15.sp,
+                            FontWeight.w500),
+                        SizedBox(height: 6.h),
+                        customText(
+                            "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
+                            kTextMedium,
+                            12.sp,
+                            FontWeight.w400),
+                        SizedBox(height: 6.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(staricon,
+                                    color: kPrimaryColor, width: 10.w),
+                                SizedBox(width: 5.w),
+                                customText(
+                                    "5.0", kTextMedium, 11.sp, FontWeight.w500),
+                                SizedBox(width: 3.w),
+                                customText("(1024)", const Color(0xFFABABAB),
+                                    11.sp, FontWeight.w500),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(timeicon,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("20 mins", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(locationpin,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("1.3 km", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  walkicon,
+                                  color: kPrimaryColor,
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(caricon, color: kPrimaryColor)
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          customText("Thornaby Branch:", kTextColor, 15.sp,
-                              FontWeight.w500),
-                          SizedBox(height: 6.h),
-                          customText(
-                              "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
-                              kTextMedium,
-                              12.sp,
-                              FontWeight.w400),
-                          SizedBox(height: 6.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(staricon,
-                                      color: kPrimaryColor, width: 10.w),
-                                  SizedBox(width: 5.w),
-                                  customText("5.0", kTextMedium, 11.sp,
-                                      FontWeight.w500),
-                                  SizedBox(width: 3.w),
-                                  customText("(1024)", const Color(0xFFABABAB),
-                                      11.sp, FontWeight.w500),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(timeicon,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("20 mins", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                  SizedBox(width: 5.w),
-                                  const Icon(Icons.circle,
-                                      size: 3, color: Color(0xFFC4C4C4)),
-                                  SizedBox(width: 5.w),
-                                  SvgPicture.asset(locationpin,
-                                      color: kPrimaryColor, width: 12.w),
-                                  SizedBox(width: 5.w),
-                                  customText("1.3 km", const Color(0xFFABABAB),
-                                      12.sp, FontWeight.w400),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    walkicon,
-                                    color: kPrimaryColor,
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  SvgPicture.asset(caricon,
-                                      color: kPrimaryColor)
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 14.w, left: 14.w, bottom: 18.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6.r),
+                border: Border.all(
+                  width: 1,
+                  color: const Color(0xFFF1F1F1),
                 ),
-              )
-              // Expanded(
-              //   child: ListView.builder(
-              //     itemCount: pickdata.length,
-              //     shrinkWrap: false,
-              //     itemBuilder: ((context, index) {
-              //       return Container(
-              //         margin:
-              //             EdgeInsets.only(right: 18.w, left: 18.w, bottom: 24.h),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(6.r),
-              //           border: Border.all(
-              //             width: 1,
-              //             color: const Color(0xFFF1F1F1),
-              //           ),
-              //         ),
-              //         child: Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             ClipRRect(
-              //               borderRadius: const BorderRadius.only(
-              //                   topLeft: Radius.circular(6),
-              //                   topRight: Radius.circular(6)),
-              //               child: Image.asset(pickdata[index]["image"]!,
-              //                   width: 1.sw, height: 131.h, fit: BoxFit.fill),
-              //             ),
-              //             Padding(
-              //               padding: EdgeInsets.symmetric(
-              //                   horizontal: 16.w, vertical: 8.h),
-              //               child: Column(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   customText("Thornaby Branch:", kTextColor, 15.sp,
-              //                       FontWeight.w500),
-              //                   SizedBox(height: 6.h),
-              //                   customText(
-              //                       "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
-              //                       kTextMedium,
-              //                       12.sp,
-              //                       FontWeight.w400),
-              //                   SizedBox(height: 6.h),
-              //                   Row(
-              //                     mainAxisAlignment:
-              //                         MainAxisAlignment.spaceBetween,
-              //                     children: [
-              //                       Row(
-              //                         mainAxisAlignment: MainAxisAlignment.center,
-              //                         children: [
-              //                           SvgPicture.asset(staricon,
-              //                               color: kPrimaryColor, width: 10.w),
-              //                           SizedBox(width: 5.w),
-              //                           customText("5.0", kTextMedium, 11.sp,
-              //                               FontWeight.w500),
-              //                           SizedBox(width: 3.w),
-              //                           customText(
-              //                               "(1024)",
-              //                               const Color(0xFFABABAB),
-              //                               11.sp,
-              //                               FontWeight.w500),
-              //                           SizedBox(width: 5.w),
-              //                           const Icon(Icons.circle,
-              //                               size: 3, color: Color(0xFFC4C4C4)),
-              //                           SizedBox(width: 5.w),
-              //                           SvgPicture.asset(timeicon,
-              //                               color: kPrimaryColor, width: 12.w),
-              //                           SizedBox(width: 5.w),
-              //                           customText(
-              //                               "20 mins",
-              //                               const Color(0xFFABABAB),
-              //                               12.sp,
-              //                               FontWeight.w400),
-              //                           SizedBox(width: 5.w),
-              //                           const Icon(Icons.circle,
-              //                               size: 3, color: Color(0xFFC4C4C4)),
-              //                           SizedBox(width: 5.w),
-              //                           SvgPicture.asset(locationpin,
-              //                               color: kPrimaryColor, width: 12.w),
-              //                           SizedBox(width: 5.w),
-              //                           customText(
-              //                               "1.3 km",
-              //                               const Color(0xFFABABAB),
-              //                               12.sp,
-              //                               FontWeight.w400),
-              //                         ],
-              //                       ),
-              //                       Row(
-              //                         children: [
-              //                           SvgPicture.asset(
-              //                             walkicon,
-              //                             color: kPrimaryColor,
-              //                           ),
-              //                           SizedBox(width: 4.w),
-              //                           SvgPicture.asset(caricon,
-              //                               color: kPrimaryColor)
-              //                         ],
-              //                       )
-              //                     ],
-              //                   )
-              //                 ],
-              //               ),
-              //             )
-              //           ],
-              //         ),
-              //       );
-              //     }),
-              //   ),
-              // ),
-            ],
-          ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(6),
+                        topRight: Radius.circular(6)),
+                    child: Image.asset('assets/images/restaurant-03.jpg',
+                        width: 1.sw, height: 131.h, fit: BoxFit.fill),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        customText("Thornaby Branch:", kTextColor, 15.sp,
+                            FontWeight.w500),
+                        SizedBox(height: 6.h),
+                        customText(
+                            "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
+                            kTextMedium,
+                            12.sp,
+                            FontWeight.w400),
+                        SizedBox(height: 6.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(staricon,
+                                    color: kPrimaryColor, width: 10.w),
+                                SizedBox(width: 5.w),
+                                customText(
+                                    "5.0", kTextMedium, 11.sp, FontWeight.w500),
+                                SizedBox(width: 3.w),
+                                customText("(1024)", const Color(0xFFABABAB),
+                                    11.sp, FontWeight.w500),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(timeicon,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("20 mins", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                                SizedBox(width: 5.w),
+                                const Icon(Icons.circle,
+                                    size: 3, color: Color(0xFFC4C4C4)),
+                                SizedBox(width: 5.w),
+                                SvgPicture.asset(locationpin,
+                                    color: kPrimaryColor, width: 12.w),
+                                SizedBox(width: 5.w),
+                                customText("1.3 km", const Color(0xFFABABAB),
+                                    12.sp, FontWeight.w400),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  walkicon,
+                                  color: kPrimaryColor,
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(caricon, color: kPrimaryColor)
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: pickdata.length,
+            //     shrinkWrap: false,
+            //     itemBuilder: ((context, index) {
+            //       return Container(
+            //         margin:
+            //             EdgeInsets.only(right: 18.w, left: 18.w, bottom: 24.h),
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(6.r),
+            //           border: Border.all(
+            //             width: 1,
+            //             color: const Color(0xFFF1F1F1),
+            //           ),
+            //         ),
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             ClipRRect(
+            //               borderRadius: const BorderRadius.only(
+            //                   topLeft: Radius.circular(6),
+            //                   topRight: Radius.circular(6)),
+            //               child: Image.asset(pickdata[index]["image"]!,
+            //                   width: 1.sw, height: 131.h, fit: BoxFit.fill),
+            //             ),
+            //             Padding(
+            //               padding: EdgeInsets.symmetric(
+            //                   horizontal: 16.w, vertical: 8.h),
+            //               child: Column(
+            //                 crossAxisAlignment: CrossAxisAlignment.start,
+            //                 children: [
+            //                   customText("Thornaby Branch:", kTextColor, 15.sp,
+            //                       FontWeight.w500),
+            //                   SizedBox(height: 6.h),
+            //                   customText(
+            //                       "5 Newton Drive, Thornaby, TS17 0EJ ( Distance: 2 Mile )",
+            //                       kTextMedium,
+            //                       12.sp,
+            //                       FontWeight.w400),
+            //                   SizedBox(height: 6.h),
+            //                   Row(
+            //                     mainAxisAlignment:
+            //                         MainAxisAlignment.spaceBetween,
+            //                     children: [
+            //                       Row(
+            //                         mainAxisAlignment: MainAxisAlignment.center,
+            //                         children: [
+            //                           SvgPicture.asset(staricon,
+            //                               color: kPrimaryColor, width: 10.w),
+            //                           SizedBox(width: 5.w),
+            //                           customText("5.0", kTextMedium, 11.sp,
+            //                               FontWeight.w500),
+            //                           SizedBox(width: 3.w),
+            //                           customText(
+            //                               "(1024)",
+            //                               const Color(0xFFABABAB),
+            //                               11.sp,
+            //                               FontWeight.w500),
+            //                           SizedBox(width: 5.w),
+            //                           const Icon(Icons.circle,
+            //                               size: 3, color: Color(0xFFC4C4C4)),
+            //                           SizedBox(width: 5.w),
+            //                           SvgPicture.asset(timeicon,
+            //                               color: kPrimaryColor, width: 12.w),
+            //                           SizedBox(width: 5.w),
+            //                           customText(
+            //                               "20 mins",
+            //                               const Color(0xFFABABAB),
+            //                               12.sp,
+            //                               FontWeight.w400),
+            //                           SizedBox(width: 5.w),
+            //                           const Icon(Icons.circle,
+            //                               size: 3, color: Color(0xFFC4C4C4)),
+            //                           SizedBox(width: 5.w),
+            //                           SvgPicture.asset(locationpin,
+            //                               color: kPrimaryColor, width: 12.w),
+            //                           SizedBox(width: 5.w),
+            //                           customText(
+            //                               "1.3 km",
+            //                               const Color(0xFFABABAB),
+            //                               12.sp,
+            //                               FontWeight.w400),
+            //                         ],
+            //                       ),
+            //                       Row(
+            //                         children: [
+            //                           SvgPicture.asset(
+            //                             walkicon,
+            //                             color: kPrimaryColor,
+            //                           ),
+            //                           SizedBox(width: 4.w),
+            //                           SvgPicture.asset(caricon,
+            //                               color: kPrimaryColor)
+            //                         ],
+            //                       )
+            //                     ],
+            //                   )
+            //                 ],
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //       );
+            //     }),
+            //   ),
+            // ),
+          ],
         ),
       )),
     );

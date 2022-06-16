@@ -12,10 +12,11 @@ class ProductDeatil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: backbutton(),
-        title: customText(item.title, kTextColor, 13.sp, FontWeight.w500),
+        title: customText(item.title, white, 13.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -24,7 +25,7 @@ class ProductDeatil extends StatelessWidget {
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
-                    color: Color(0xFF212121),
+                    color: white,
                   )),
               Positioned(
                 right: 10,
@@ -33,10 +34,10 @@ class ProductDeatil extends StatelessWidget {
                   width: 15.w,
                   height: 15.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      color: kPrimaryColor),
+                      borderRadius: BorderRadius.circular(50.r), color: white),
                   child: Center(
-                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
                 ),
               )
             ],
@@ -67,6 +68,26 @@ class ProductDeatil extends StatelessWidget {
                     maxLine: 5),
                 SizedBox(height: 8.h),
                 Text(item.amonnt),
+                Row(
+                  children: [
+                    Container(
+                        width: 22.w,
+                        height: 22.w,
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(4.r),
+                        ),
+                        child: const Icon(Icons.add, color: white, size: 15)),
+                    Container(
+                        width: 22.w,
+                        height: 22.w,
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(4.r),
+                        ),
+                        child: const Icon(Icons.add, color: white, size: 15)),
+                  ],
+                )
               ],
             ),
           ),

@@ -15,7 +15,7 @@ class RegisterScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: backbutton(),
-        title: customText("Sign Up", kBgColor, 16.sp, FontWeight.w600),
+        title: customText("Sign Up", white, 16.sp, FontWeight.w600),
         centerTitle: false,
       ),
       body: SafeArea(

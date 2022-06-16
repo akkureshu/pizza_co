@@ -10,7 +10,7 @@ class MyOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: customText("My Orders", kTextColor, 13.sp, FontWeight.w500),
+        title: customText("My Orders", white, 13.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -19,7 +19,7 @@ class MyOrders extends StatelessWidget {
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
-                    color: Color(0xFF212121),
+                    color: white,
                   )),
               Positioned(
                 right: 10,
@@ -28,10 +28,10 @@ class MyOrders extends StatelessWidget {
                   width: 15.w,
                   height: 15.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      color: kPrimaryColor),
+                      borderRadius: BorderRadius.circular(50.r), color: white),
                   child: Center(
-                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
                 ),
               )
             ],

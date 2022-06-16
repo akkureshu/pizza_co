@@ -18,16 +18,16 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.only(top: 18.h),
               child: Column(
                 children: [
-                  SizedBox(
-                    width: 80.w,
-                    height: 80.w,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100.r),
-                      child: Image.asset("assets/images/pizza.jpg",
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(height: 12.h),
+                  // SizedBox(
+                  //   width: 80.w,
+                  //   height: 80.w,
+                  //   child: ClipRRect(
+                  //     borderRadius: BorderRadius.circular(100.r),
+                  //     child: Image.asset("assets/images/pizza.jpg",
+                  //         fit: BoxFit.fill),
+                  //   ),
+                  // ),
+                  // SizedBox(height: 12.h),
                   customText("Hardy Bean", white, 14.sp, FontWeight.w600),
                 ],
               ),

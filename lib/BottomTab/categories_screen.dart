@@ -65,7 +65,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: customText("Categories", kTextColor, 13.sp, FontWeight.w500),
+        title: customText("Categories", white, 13.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -74,7 +74,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
-                    color: Color(0xFF212121),
+                    color: white,
                   )),
               Positioned(
                 right: 10,
@@ -83,10 +83,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   width: 15.w,
                   height: 15.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      color: kPrimaryColor),
+                      borderRadius: BorderRadius.circular(50.r), color: white),
                   child: Center(
-                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
                 ),
               )
             ],
@@ -203,7 +203,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         children: [
                           Container(
                             margin: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
+                                left: 14.w, right: 14.w, top: 14.h),
                             decoration: BoxDecoration(
                               border: Border.all(
                                   width: 1, color: const Color(0xFFCCCCCC)),
@@ -221,7 +221,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           ),
                           Container(
                             margin: EdgeInsets.only(
-                                left: 16.w, right: 16.w, top: 16.h),
+                                left: 14.w, right: 14.w, top: 14.h),
                             decoration: BoxDecoration(
                               border: Border.all(
                                   width: 1, color: const Color(0xFFCCCCCC)),
@@ -255,7 +255,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -271,7 +271,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -279,7 +279,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -287,7 +287,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -295,7 +295,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -303,7 +303,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         }),
                     ListView.builder(
                         padding:
-                            EdgeInsets.only(left: 16.w, right: 16.w, top: 16.h),
+                            EdgeInsets.only(left: 14.w, right: 14.w, top: 14.h),
                         itemCount: _mlist.length,
                         itemBuilder: (context, index) {
                           return productItem(_mlist[index].title,
@@ -329,7 +329,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          
             ClipRRect(
               borderRadius: BorderRadius.circular(5.r),
               child: CachedNetworkImage(
@@ -346,13 +345,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 children: [
                   customText(title, kTextColor, 14.sp, FontWeight.w500),
                   SizedBox(height: 5.h),
-                  customText(
-                    dec,
-                    kTextMedium,
-                    12.sp,
-                    FontWeight.w400,
-                    maxLine: 1,
-                  ),
+                  customText(dec, kTextMedium, 12.sp, FontWeight.w400,
+                      maxLine: 1),
                   SizedBox(height: 5.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -381,98 +375,3 @@ class ProModals {
       required this.amonnt,
       this.category});
 }
-
-
-
-// import '../constants.dart';
-
-// class CategoriesScreen extends StatefulWidget {
-//   const CategoriesScreen({Key? key}) : super(key: key);
-
-//   @override
-//   State<CategoriesScreen> createState() => _CategoriesScreenState();
-// }
-
-// class _CategoriesScreenState extends State<CategoriesScreen> {
-//   final List<Map<String, String>> categorydata = [
-//     {
-//       "title": "Pizza",
-//       "image": 'assets/images/pizza.jpg',
-//     },
-//     {
-//       "title": "Garlic Breads",
-//       "image": 'assets/images/breads.jpg',
-//     },
-//     {
-//       "title": "Burger",
-//       "image": 'assets/images/burger.jpg',
-//     },
-//     {
-//       "title": "Parmo",
-//       "image": 'assets/images/parmos.jpg',
-//     },
-//     {
-//       "title": "Kebabs",
-//       "image": 'assets/images/kebabs.jpg',
-//     },
-//     {
-//       "title": "Desserts",
-//       "image": 'assets/images/desserts.jpg',
-//     },
-//     {
-//       "title": "Drinks",
-//       "image": 'assets/images/drinks.jpg',
-//     },
-//     {
-//       "title": "Side Dishes",
-//       "image": 'assets/images/SideDishes.jpg',
-//     },
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: white,
-//       appBar: AppBar(
-//         title: customText("Categories", kTextColor, 13.sp, FontWeight.w500),
-//       ),
-//       drawer: const MyDrawer(),
-//       body: SafeArea(
-//         child: GridView.builder(
-//             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-//                 maxCrossAxisExtent: 200,
-//                 //  childAspectRatio: 3,
-//                 crossAxisSpacing: 12,
-//                 mainAxisSpacing: 12),
-//             itemCount: categorydata.length,
-//             padding: EdgeInsets.only(
-//                 left: 18.w, right: 18.w, top: 18.h, bottom: 18.h),
-//             shrinkWrap: true,
-//             itemBuilder: ((context, index) {
-//               return Container(
-//                 margin: EdgeInsets.only(right: 18.w),
-//                 child: InkWell(
-//                   onTap: () {},
-//                   child: Column(
-//                     children: [
-//                       ClipRRect(
-//                         borderRadius: BorderRadius.circular(6.r),
-//                         child: Image.asset(
-//                           categorydata[index]["image"]!,
-//                           width: .5.sw,
-//                           height: 120.h,
-//                           fit: BoxFit.fill,
-//                         ),
-//                       ),
-//                       SizedBox(height: 6.h),
-//                       customText(categorydata[index]["title"]!,
-//                           const Color(0xFF4B4B4B), 14.sp, FontWeight.w500)
-//                     ],
-//                   ),
-//                 ),
-//               );
-//             })),
-//       ),
-//     );
-//   }
-// }

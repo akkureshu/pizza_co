@@ -11,7 +11,7 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: customText("More", kTextColor, 13.sp, FontWeight.w500),
+        title: customText("More", white, 13.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -20,7 +20,7 @@ class MoreScreen extends StatelessWidget {
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
-                    color: Color(0xFF212121),
+                    color: white,
                   )),
               Positioned(
                 right: 10,
@@ -29,10 +29,10 @@ class MoreScreen extends StatelessWidget {
                   width: 15.w,
                   height: 15.w,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.r),
-                      color: kPrimaryColor),
+                      borderRadius: BorderRadius.circular(50.r), color: white),
                   child: Center(
-                      child: customText("2", white, 10.sp, FontWeight.w500)),
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
                 ),
               )
             ],

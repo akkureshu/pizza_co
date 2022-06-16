@@ -16,7 +16,7 @@ class VerifyScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: backbutton(),
-        title: customText("Verification", kBgColor, 16.sp, FontWeight.w400),
+        title: customText("Verification", white, 16.sp, FontWeight.w400),
         centerTitle: false,
       ),
       bottomNavigationBar: Padding(

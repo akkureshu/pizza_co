@@ -13,10 +13,10 @@ ThemeData theme() {
 AppBarTheme appBarTheme() {
   // ignore: prefer_const_constructors
   return AppBarTheme(
-    elevation: .5,
-    backgroundColor: white,
+    elevation: 0,
+    backgroundColor: kPrimaryColor,
     iconTheme: const IconThemeData(
-      color: Colors.black45,
+      color: white,
     ),
   );
 }
