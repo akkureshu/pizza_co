@@ -26,40 +26,48 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     _mlist.add(
       ProModals(
           image:
-              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-01.jpg',
+              'https://newcastle.thepizzacompany.co.uk/DataImages/Products/item_0_20211217035040447.jpg',
           title: 'Margherita',
-          category: 'BURGERS (HAND MADE).',
-          dec:
-              'Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing like.',
-          amonnt: '20.99'),
+          category: 'Pizza',
+          dec: 'Original tomato and cheese pizza',
+          amonnt: '7.50'),
     );
     _mlist.add(
       ProModals(
           image:
-              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-02.jpg',
-          title: 'Vegetarian',
-          dec:
-              'Lorem Ipsum passages, and more recently with desktop publishing like.Lorem Ipsum passages, and more recently with desktop publishing',
-          amonnt: '20.99'),
+              'https://newcastle.thepizzacompany.co.uk/DataImages/Products/item_0_20211222040201200.jpg',
+          title: 'Al-Funghi Pizza',
+          category: 'Pizza',
+          dec: 'Mushrooms',
+          amonnt: '7.90'),
     );
     _mlist.add(
       ProModals(
           image:
-              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-03.jpg',
-          title: 'Texas BBQ Chicken',
-          category: 'BURGERS (HAND MADE).',
+              'https://newcastle.thepizzacompany.co.uk/DataImages/Products/item_0_20211222040320780.jpg',
+          title: 'London Pizza',
+          category: 'Pizza',
           dec:
               'Lorem Ipsum passages, and more recently with desktop publishing like.',
-          amonnt: '20.99'),
+          amonnt: '7.90'),
     );
     _mlist.add(
       ProModals(
           image:
-              'https://design1.gowebbi.in/restaurant-food-delivery/assets/image/pizza/pizza-04.jpg',
-          title: 'Pepperoni',
-          dec:
-              'Lorem Ipsum passages, and more recently with desktop publishing like.',
-          amonnt: '20.99'),
+              'https://newcastle.thepizzacompany.co.uk/DataImages/Products/item_0_20211222040417284.jpg',
+          title: 'Vegetarian Pizza',
+          category: 'Pizza',
+          dec: 'Peppers, mushrooms, onions & sweetcorn',
+          amonnt: '7.90'),
+    );
+    _mlist.add(
+      ProModals(
+          image:
+              'https://newcastle.thepizzacompany.co.uk/DataImages/Products/item_0_20211222040456270.jpg',
+          title: 'Ham Pizza',
+          category: 'Pizza',
+          dec: 'Peppers, mushrooms, onions & sweetcorn',
+          amonnt: '7.90'),
     );
   }
 
@@ -496,12 +504,12 @@ Widget productItem(String title, dec, images) {
 }
 
 class ProModals {
-  String title, dec, amonnt;
-  String? image, category;
+  String title, category, amonnt;
+  String? image, dec;
   ProModals(
       {this.image,
       required this.title,
-      required this.dec,
+      this.dec,
       required this.amonnt,
-      this.category});
+      required this.category});
 }

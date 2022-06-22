@@ -59,35 +59,50 @@ class ProductDeatil extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 customText(item.title, kTextColor, 18.sp, FontWeight.w500),
-                SizedBox(height: 12.h),
-                if (item.category != null)
-                  customText(
-                      item.category!, kTextMedium, 14.sp, FontWeight.w400),
-                SizedBox(height: 8.h),
-                customText(item.dec, kTextColor, 12.sp, FontWeight.w400,
-                    maxLine: 5),
-                SizedBox(height: 8.h),
-                Text(item.amonnt),
+                SizedBox(height: 6.h),
                 Row(
                   children: [
-                    Container(
-                        width: 22.w,
-                        height: 22.w,
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(4.r),
-                        ),
-                        child: const Icon(Icons.add, color: white, size: 15)),
-                    Container(
-                        width: 22.w,
-                        height: 22.w,
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(4.r),
-                        ),
-                        child: const Icon(Icons.add, color: white, size: 15)),
+                    customText(
+                        "Category : ", kTextColor, 14.sp, FontWeight.w500),
+                    customText(
+                        item.category, kTextMedium, 14.sp, FontWeight.w400),
+                  ],
+                ),
+                SizedBox(height: 8.h),
+                if (item.dec != null)
+                  customText(item.dec!, kTextColor, 12.sp, FontWeight.w400,
+                      maxLine: 5),
+                SizedBox(height: 8.h),
+
+                Row(
+                  children: [
+                    ClipPath(
+                      child: Image(image: image),
+                    )
                   ],
                 )
+                // Text(item.amonnt),
+
+                // Row(
+                //   children: [
+                //     Container(
+                //         width: 22.w,
+                //         height: 22.w,
+                //         decoration: BoxDecoration(
+                //           color: kPrimaryColor,
+                //           borderRadius: BorderRadius.circular(4.r),
+                //         ),
+                //         child: const Icon(Icons.add, color: white, size: 15)),
+                //     Container(
+                //         width: 22.w,
+                //         height: 22.w,
+                //         decoration: BoxDecoration(
+                //           color: kPrimaryColor,
+                //           borderRadius: BorderRadius.circular(4.r),
+                //         ),
+                //         child: const Icon(Icons.add, color: white, size: 15)),
+                //   ],
+                // )
               ],
             ),
           ),
