@@ -11,7 +11,8 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        title: customText("More", white, 13.sp, FontWeight.w500),
+        automaticallyImplyLeading: false,
+        title: customText("More", white, 16.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [

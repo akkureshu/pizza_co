@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pizza_co/BottomTab/mytab_bar.dart';
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/login/verify_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -61,7 +61,7 @@ class RegisterScreen extends StatelessWidget {
                     child: DefaultButton(
                         text: "Sumbit",
                         press: () {
-                          Get.to(() => const MytabBar());
+                          Get.to(() => const VerifyScreen());
                         }))
               ],
             ),

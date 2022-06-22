@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pizza_co/components/my_drawer.dart';
 import 'package:pizza_co/constants.dart';
 
 class MyOrders extends StatelessWidget {
@@ -10,7 +9,8 @@ class MyOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: customText("My Orders", white, 13.sp, FontWeight.w500),
+        automaticallyImplyLeading: false,
+        title: customText("My Orders", white, 16.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -38,7 +38,6 @@ class MyOrders extends StatelessWidget {
           ),
         ],
       ),
-      drawer: const MyDrawer(),
     );
   }
 }

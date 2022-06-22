@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pizza_co/BottomTab/mytab_bar.dart';
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/login/search_area.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 class VerifyScreen extends StatelessWidget {
@@ -27,7 +27,7 @@ class VerifyScreen extends StatelessWidget {
             child: DefaultButton(
                 text: "Verify",
                 press: () {
-                  Get.to(() => const MytabBar());
+                  Get.to(() => const SearchArea());
                 })),
       ),
       body: SafeArea(

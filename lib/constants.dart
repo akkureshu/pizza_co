@@ -22,7 +22,7 @@ const caricon = 'assets/icon/car.svg';
 const walkicon = 'assets/icon/walkicon.svg';
 const close = 'assets/icon/close.svg';
 const locationsmall = 'assets/icon/locationsmall.svg';
-// const dashicon = 'assets/icon/dash.svg';
+const carticon = 'assets/icon/cart.svg';
 // const hearticon = 'assets/icon/fillheart.svg';
 // const usericon = 'assets/icon/user.svg';
 // const lefticon = 'assets/icon/leftarrow.svg';
@@ -121,7 +121,7 @@ Widget searchbox({required String hintText, required Function()? onTap}) {
           IconButton(
               onPressed: onTap,
               icon: SvgPicture.asset("assets/icon/search.svg",
-                  width: 16.w, height: 16.h)),
+                  color: kPrimaryColor, width: 16.w, height: 16.h)),
           Expanded(
             child: TextFormField(
               //autofocus: true,
@@ -133,7 +133,7 @@ Widget searchbox({required String hintText, required Function()? onTap}) {
                 ),
                 hintStyle: TextStyle(
                     fontSize: 14.sp,
-                    color: const Color(0xFFFCA485),
+                    color: kPrimaryColor.withOpacity(.8),
                     fontWeight: FontWeight.w500),
               ),
               style: TextStyle(
