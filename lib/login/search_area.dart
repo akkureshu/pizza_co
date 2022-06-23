@@ -87,47 +87,55 @@ class SelectLocation extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               customText("Westgate:", const Color(0xFF212121),
-                                  16.sp, FontWeight.w600),
-                              SizedBox(height: 8.h),
+                                  13.sp, FontWeight.w600),
+                              SizedBox(height: 3.h),
                               customText(
                                   "498 Westgate Road, Newcastle, NE4 9HD",
                                   kTextColor,
                                   12.sp,
                                   FontWeight.w400),
-                              SizedBox(height: 8.h),
+                              SizedBox(height: 3.h),
                               customText("( Distance: 0.04 Mile )",
-                                  kPrimaryColor, 12.sp, FontWeight.w500),
+                                  kPrimaryColor, 10.sp, FontWeight.w500),
+                              SizedBox(height: 5.h),
                               Row(
                                 children: [
                                   Container(
-                                    width: 30.w,
-                                    height: 30.w,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 6.w),
+                                    height: 22.w,
                                     decoration: BoxDecoration(
-                                        color: white,
+                                        color: kPrimaryColor,
                                         borderRadius:
-                                            BorderRadius.circular(50.r)),
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: SvgPicture.asset(
-                                          caricon,
-                                          color: kPrimaryColor,
-                                          width: 20.w,
-                                        )),
+                                            BorderRadius.circular(4.r)),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(caricon,
+                                            color: white, width: 12.w),
+                                        SizedBox(width: 5.w),
+                                        customText("Deliver to me", white,
+                                            12.sp, FontWeight.w400)
+                                      ],
+                                    ),
                                   ),
+                                  SizedBox(width: 10.w),
                                   Container(
-                                    width: 30.w,
-                                    height: 30.w,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 6.w),
+                                    height: 22.w,
                                     decoration: BoxDecoration(
-                                        color: white,
+                                        color: const Color(0xFFfdd51c),
                                         borderRadius:
-                                            BorderRadius.circular(50.r)),
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: SvgPicture.asset(
-                                          walkicon,
-                                          color: kPrimaryColor,
-                                          width: 20.w,
-                                        )),
+                                            BorderRadius.circular(4.r)),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(walkicon,
+                                            color: white, width: 12.w),
+                                        SizedBox(width: 5.w),
+                                        customText("I'll collect", white, 12.sp,
+                                            FontWeight.w400)
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),

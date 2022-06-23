@@ -145,7 +145,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       child: Container(height: 50.h, color: white),
                     ),
                     Positioned(
-                      top: 120.h,
+                      top: 110.h,
                       left: 6.w,
                       right: 6.w,
                       child: Container(
@@ -157,7 +157,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           color: white,
                           border: Border.all(
                             width: 1,
-                            color: const Color(0xFFF1F1F1),
+                            color: const Color(0xFFCCCCCC).withOpacity(.6),
                           ),
                         ),
                         child: Column(
@@ -179,18 +179,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SvgPicture.asset(staricon, width: 10.w),
                                 SizedBox(width: 5.w),
-                                customText(
-                                    "5.0", kTextMedium, 11.sp, FontWeight.w500),
-                                SizedBox(width: 3.w),
-                                customText("(1024)", const Color(0xFFABABAB),
-                                    11.sp, FontWeight.w500),
-                                SizedBox(width: 5.w),
-                                const Icon(Icons.circle,
-                                    size: 3, color: Color(0xFFC4C4C4)),
-                                SizedBox(width: 5.w),
-                                SvgPicture.asset(timeicon, width: 12.w),
+                                SvgPicture.asset(timeicon,
+                                    width: 12.w, color: kPrimaryColor),
                                 SizedBox(width: 5.w),
                                 customText("20 mins", const Color(0xFFABABAB),
                                     12.sp, FontWeight.w400),
@@ -198,7 +189,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                 const Icon(Icons.circle,
                                     size: 3, color: Color(0xFFC4C4C4)),
                                 SizedBox(width: 5.w),
-                                SvgPicture.asset(locationpin, width: 12.w),
+                                SvgPicture.asset(locationpin,
+                                    width: 12.w, color: kPrimaryColor),
                                 SizedBox(width: 5.w),
                                 customText("1.3 km", const Color(0xFFABABAB),
                                     12.sp, FontWeight.w400),
@@ -446,14 +438,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ),
         ),
       ),
-      //     CustomScrollView(
-      //   slivers: [
-      //     SliverAppBar(
-      //       title: customText(
-      //           "McDonald's (Qibla)", kTextColor, 16.sp, FontWeight.w800),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
