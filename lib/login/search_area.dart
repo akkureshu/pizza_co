@@ -30,7 +30,9 @@ class SearchArea extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.bottomSheet(const SelectLocation());
+        },
         backgroundColor: white,
         child: SvgPicture.asset("assets/icon/location.svg",
             color: kPrimaryColor, width: 24.w, height: 24.h),
