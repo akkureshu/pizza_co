@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
@@ -55,73 +56,77 @@ class _CartScreenState extends State<CartScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 16.h),
-            Center(
-              child: Container(
-                height: 55.h,
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFc1dd9b),
-                  borderRadius: BorderRadius.circular(50.r),
-                ),
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 2,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          setState(() {
-                            _selectedIndex = index;
-                          });
-                        },
-                        child: Container(
-                          width: 120.w,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 5.w, vertical: 3.h),
-                          decoration: BoxDecoration(
-                            color: _selectedIndex == index
-                                ? const Color(0xFF9cca4e)
-                                : const Color(0xFFc1dd9b),
-                            borderRadius: BorderRadius.circular(50.r),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 40.h,
-                                width: 40.h,
-                                padding: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50.r),
-                                    color: const Color(0xFFebe2cb),
-                                    border: Border.all(
-                                        width: 2, color: kPrimaryColor)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.r),
-                                  child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl:
-                                          "https://newcastle.thepizzacompany.co.uk/assets/image/icon/icon-16.png"),
-                                ),
-                              ),
-                              SizedBox(width: 8.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  customText("Delivery", kTextColor, 13.sp,
-                                      FontWeight.w500),
-                                  SizedBox(height: 2.h),
-                                  customText("45 min", kTextColor, 13.sp,
-                                      FontWeight.w500),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
+            Container(
+              height: 55.h,
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+              decoration: BoxDecoration(
+                color: const Color(0xFFc1dd9b),
+                borderRadius: BorderRadius.circular(50.r),
               ),
+              child: ListView.builder(
+                  shrinkWrap: false,
+                  itemCount: 2,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
+                      child: Container(
+                        width: .44.sw,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 5.w, vertical: 3.h),
+                        decoration: BoxDecoration(
+                          // color: _selectedIndex == index
+                          //     ? const Color(0xFF9cca4e)
+                          //     : const Color(0xFFc1dd9b),
+                          color: _selectedIndex == index
+                              ? Colors.white60
+                              : const Color(0xFFc1dd9b),
+                          borderRadius: BorderRadius.circular(50.r),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              walkicon,
+                              width: 20.w,
+                              height: 20.w,
+                              color: _selectedIndex == index
+                                  ? kTextColor
+                                  : kTextMedium.withOpacity(.5),
+                            ),
+                            SizedBox(width: 8.w),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                customText(
+                                    "Delivery",
+                                    _selectedIndex == index
+                                        ? kTextColor
+                                        : kTextMedium.withOpacity(.5),
+                                    14.sp,
+                                    FontWeight.w500),
+                                SizedBox(width: 2.w),
+                                customText(
+                                    "45 min",
+                                    _selectedIndex == index
+                                        ? kTextColor
+                                        : kTextMedium.withOpacity(.5),
+                                    12.sp,
+                                    FontWeight.w500),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
             ),
             SizedBox(height: 16.h),
             ListView.builder(
