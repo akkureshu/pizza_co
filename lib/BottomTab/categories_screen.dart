@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
-import 'package:pizza_co/product_deatil.dart';
+import 'package:pizza_co/pages/product_deatil.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);

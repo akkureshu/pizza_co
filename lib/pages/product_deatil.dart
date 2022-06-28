@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pizza_co/BottomTab/categories_screen.dart';
 
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/pages/cart_screen.dart';
 
 class ProductDeatil extends StatefulWidget {
   final ProModals item;
@@ -65,7 +67,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: backbutton(),
-        title: customText(widget.item.title, white, 13.sp, FontWeight.w500),
+        title: customText(widget.item.title, white, 16.sp, FontWeight.w500),
         actions: [
           Stack(
             children: [
@@ -113,24 +115,26 @@ class _ProductDeatilState extends State<ProductDeatil> {
                   children: [
                     InkWell(
                       onTap: () {
-                        _incrementCount();
+                        _decrementCoint();
                       },
                       child: Container(
-                          width: 28.w,
-                          height: 28.w,
+                          padding: EdgeInsets.only(bottom: 6.h),
+                          width: 25.w,
+                          height: 25.w,
                           decoration: const BoxDecoration(
                             color: Colors.black,
                           ),
-                          child: const Icon(Icons.add, color: white, size: 15)),
+                          child: const Icon(Icons.minimize_rounded,
+                              color: white, size: 15)),
                     ),
                     customText("$_count", kTextColor, 14.sp, FontWeight.w500),
                     InkWell(
                       onTap: () {
-                        _decrementCoint();
+                        _incrementCount();
                       },
                       child: Container(
-                          width: 28.w,
-                          height: 28.w,
+                          width: 25.w,
+                          height: 25.w,
                           decoration: const BoxDecoration(
                             color: Colors.black,
                           ),
@@ -142,12 +146,14 @@ class _ProductDeatilState extends State<ProductDeatil> {
               SizedBox(width: 15.w),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const CartScreen());
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: kPrimaryColor,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(0.r),
                     ),
                   ),
                   child:
@@ -212,52 +218,53 @@ class _ProductDeatilState extends State<ProductDeatil> {
                     height: 110.h,
                     child: Center(
                       child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (BuildContext context, int index) =>
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 15.w),
-                                width: 1.w,
-                                height: .2.sh,
-                                decoration: const BoxDecoration(
-                                  color: kPrimaryColor,
+                        scrollDirection: Axis.horizontal,
+                        separatorBuilder: (BuildContext context, int index) =>
+                            Container(
+                          margin: EdgeInsets.symmetric(horizontal: 15.w),
+                          width: 1.w,
+                          height: .2.sh,
+                          decoration: const BoxDecoration(
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                        itemCount: picList.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                _selectedIndex = index;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(5.r),
+                                  child: CachedNetworkImage(
+                                      height: 80.h,
+                                      width: 80.h,
+                                      fit: BoxFit.fill,
+                                      imageUrl: picList[index].image),
                                 ),
-                              ),
-                          itemCount: picList.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _selectedIndex = index;
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(5.r),
-                                    child: CachedNetworkImage(
-                                        height: 80.h,
-                                        width: 80.h,
-                                        fit: BoxFit.fill,
-                                        imageUrl: picList[index].image),
-                                  ),
-                                  SizedBox(height: 8.h),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.check_circle_outline_rounded,
-                                          size: 20,
-                                          color: _selectedIndex == index
-                                              ? kPrimaryColor
-                                              : const Color(0xFFE5E5E5)),
-                                      SizedBox(width: 4.w),
-                                      customText(picList[index].size,
-                                          kTextColor, 14.sp, FontWeight.w500)
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          }),
+                                SizedBox(height: 8.h),
+                                Row(
+                                  children: [
+                                    Icon(Icons.check_circle_outline_rounded,
+                                        size: 20,
+                                        color: _selectedIndex == index
+                                            ? kPrimaryColor
+                                            : const Color(0xFFE5E5E5)),
+                                    SizedBox(width: 4.w),
+                                    customText(picList[index].size, kTextColor,
+                                        14.sp, FontWeight.w500)
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -270,7 +277,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                     child: customText(
                         "Bases ( Optional )", kTextColor, 14, FontWeight.w500),
                   ),
-                  SizedBox(height: 20.h),
+                  // SizedBox(height: 20.h),
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -286,8 +293,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                         customText(
                             "Normal", kTextColor, 13.sp, FontWeight.w400),
                         const Spacer(),
-                        customText(
-                            "&£ 0.00", kTextColor, 15.sp, FontWeight.w600)
+                        customText("£ 0.00", kTextColor, 15.sp, FontWeight.w600)
                       ],
                     ),
                   ),
@@ -358,7 +364,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  // SizedBox(height: 20.h),
                   Container(
                     width: 1.sw,
                     padding:
@@ -368,7 +374,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                     child: customText("Toppings ( Optional )", kTextColor, 14,
                         FontWeight.w500),
                   ),
-                  SizedBox(height: 20.h),
+                  // SizedBox(height: 20.h),
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -411,44 +417,66 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      Radio(
-                          value: "Chilli",
-                          groupValue: bases,
-                          onChanged: (value) {
-                            setState(() {
-                              bases = value.toString();
-                            });
-                          }),
-                      customText("Chilli", kTextColor, 13.sp, FontWeight.w400)
-                    ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        bases = 'Chilli';
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Radio(
+                            value: "Chilli",
+                            groupValue: bases,
+                            onChanged: (value) {
+                              setState(() {
+                                bases = value.toString();
+                              });
+                            }),
+                        customText("Chilli", kTextColor, 13.sp, FontWeight.w400)
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Radio(
-                          value: "Olives",
-                          groupValue: bases,
-                          onChanged: (value) {
-                            setState(() {
-                              bases = value.toString();
-                            });
-                          }),
-                      customText("Olives", kTextColor, 13.sp, FontWeight.w400)
-                    ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        bases = 'Olives';
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Radio(
+                            value: "Olives",
+                            groupValue: bases,
+                            onChanged: (value) {
+                              setState(() {
+                                bases = value.toString();
+                              });
+                            }),
+                        customText("Olives", kTextColor, 13.sp, FontWeight.w400)
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Radio(
-                          value: "Tomatoes",
-                          groupValue: bases,
-                          onChanged: (value) {
-                            setState(() {
-                              bases = value.toString();
-                            });
-                          }),
-                      customText("Tomatoes", kTextColor, 13.sp, FontWeight.w400)
-                    ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        bases = 'Tomatoes';
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Radio(
+                            value: "Tomatoes",
+                            groupValue: bases,
+                            onChanged: (value) {
+                              setState(() {
+                                bases = value.toString();
+                              });
+                            }),
+                        customText(
+                            "Tomatoes", kTextColor, 13.sp, FontWeight.w400)
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -64,12 +64,9 @@ InputDecoration myInputDecoration(
   return InputDecoration(
     // hintText: hintText,
     alignLabelWithHint: true,
-    hintText: hintText,
-    // labelText: isLabel ? hintText : null,
-    hintStyle: const TextStyle(
-      color: Color(0xFF707070),
-      fontSize: 12,
-    ),
+    labelText: isLabel ? hintText : null,
+    labelStyle: const TextStyle(
+        color: Color(0xFF82909B), fontSize: 12, fontFamily: "OpenSans"),
     contentPadding: const EdgeInsets.symmetric(
       horizontal: 12,
       vertical: 20,
@@ -77,7 +74,7 @@ InputDecoration myInputDecoration(
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide: const BorderSide(
-        color: Color(0xFFF1F1F1),
+        color: border,
       ),
       gapPadding: 10,
     ),
