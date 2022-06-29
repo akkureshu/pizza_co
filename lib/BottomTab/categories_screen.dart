@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/pages/cart_screen.dart';
 import 'package:pizza_co/pages/product_deatil.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -129,7 +130,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                   color: white,
                                   borderRadius: BorderRadius.circular(50.r)),
                               child: IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(() => const CartScreen());
+                                  },
                                   icon: SvgPicture.asset(
                                     carticon,
                                     color: kPrimaryColor,

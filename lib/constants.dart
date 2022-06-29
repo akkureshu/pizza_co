@@ -23,27 +23,7 @@ const walkicon = 'assets/icon/walkicon.svg';
 const close = 'assets/icon/close.svg';
 const locationsmall = 'assets/icon/locationsmall.svg';
 const carticon = 'assets/icon/cart.svg';
-// const hearticon = 'assets/icon/fillheart.svg';
-// const usericon = 'assets/icon/user.svg';
-// const lefticon = 'assets/icon/leftarrow.svg';
-// const bellicon = 'assets/icon/bell.svg';
-// const walleticon = 'assets/icon/wallet.svg';
-// const pointicon = 'assets/icon/point.svg';
-// const car = 'assets/icon/car1.svg';
-// const helpchat = 'assets/icon/h-chat.svg';
-// const languageicon = 'assets/icon/language.svg';
-// const logouticon = 'assets/icon/logout.svg';
-// const addicon = 'assets/icon/add.svg';
-// const minusicon = 'assets/icon/minus.svg';
-// const infoicon = 'assets/icon/info2.svg';
-// const cashin = 'assets/icon/cashin.png';
-// const cashout = 'assets/icon/cashout.png';
-// const downarrow = 'assets/icon/downarrowo.svg';
-// const right = 'assets/icon/righttick.svg';
-// const cancel = 'assets/icon/cancel.svg';
-// const direction = 'assets/icon/direction.svg';
-// const reorder = 'assets/icon/reorder.svg';
-// const walletoutline = 'assets/icon/wallet2.svg';
+const code = 'assets/icon/code.svg';
 
 //-------------------------Custom Text--------------------
 

@@ -84,11 +84,17 @@ class _AddressListState extends State<AddressList> {
                       customText(
                           "97988874", kTextMedium, 14.sp, FontWeight.w400),
                       SizedBox(height: 5.h),
+                      customText("demo@gmail.com", kTextMedium, 14.sp,
+                          FontWeight.w400),
+                      SizedBox(height: 5.h),
                       customText(
                           "Area, Block, Street, Avenue,House, Floor, Flat",
                           kTextMedium,
                           14.sp,
                           FontWeight.w400),
+                      SizedBox(height: 5.h),
+                      customText(
+                          "NE4 9BL", kTextMedium, 14.sp, FontWeight.w400),
                     ],
                   ),
                 ),
