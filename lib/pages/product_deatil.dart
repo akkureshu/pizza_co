@@ -72,7 +72,9 @@ class _ProductDeatilState extends State<ProductDeatil> {
           Stack(
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const CartScreen());
+                  },
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 20,
