@@ -98,7 +98,8 @@ class _ProductDeatilState extends State<ProductDeatil> {
             ],
           ),
         ],
-      ),
+
+),
       bottomNavigationBar: ColoredBox(
         color: const Color(0xFFF2F2F2),
         child: Padding(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/pages/cart_screen.dart';
 import 'package:pizza_co/pages/order_detail.dart';
 
 class MyOrders extends StatelessWidget {
@@ -15,6 +16,34 @@ class MyOrders extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: customText("My Orders", white, 16.sp, FontWeight.w500),
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Get.to(() => const CartScreen());
+                  },
+                  icon: const Icon(
+                    Icons.shopping_cart,
+                    size: 20,
+                    color: white,
+                  )),
+              Positioned(
+                right: 10,
+                top: 4,
+                child: Container(
+                  width: 15.w,
+                  height: 15.w,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.r), color: white),
+                  child: Center(
+                      child: customText(
+                          "2", kPrimaryColor, 10.sp, FontWeight.w500)),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
       body: SafeArea(
           child: ListView.builder(
