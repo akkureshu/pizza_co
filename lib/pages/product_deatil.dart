@@ -39,7 +39,9 @@ class _ProductDeatilState extends State<ProductDeatil> {
 
   @override
   void initState() {
+    getData();
     super.initState();
+
     picList.add(
       PicModals(
           image:
@@ -290,6 +292,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "normal",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {}),
                         customText(
@@ -309,6 +312,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "bbq",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -331,6 +335,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "ChilliBase",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -353,6 +358,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "garlicbutter",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -387,6 +393,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "cheese",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -408,6 +415,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "onion",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -429,6 +437,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "Chilli",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -449,6 +458,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "Olives",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -469,6 +479,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                       children: [
                         Radio(
                             value: "Tomatoes",
+                            activeColor: kPrimaryColor,
                             groupValue: bases,
                             onChanged: (value) {
                               setState(() {
@@ -487,6 +498,10 @@ class _ProductDeatilState extends State<ProductDeatil> {
         )),
       ),
     );
+  }
+
+  void getData() {
+    setState(() {});
   }
 }
 

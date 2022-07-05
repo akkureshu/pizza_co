@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 
 class DeliveryScreen extends StatefulWidget {
   final bool isDelivery;
-  const DeliveryScreen({Key? key,required this.isDelivery}) : super(key: key);
+  const DeliveryScreen({Key? key, required this.isDelivery}) : super(key: key);
 
   @override
   State<DeliveryScreen> createState() => _DeliveryScreenState();
@@ -93,51 +93,51 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                   );
                 }),
             SizedBox(height: 11.h),
-            if(widget.isDelivery)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    customText(
-                        "Delivery Address", kTextColor, 16.sp, FontWeight.w600),
-                    InkWell(
-                      onTap: () {
-                        Get.to(() => const AddressList());
-                      },
-                      child: customText(
-                          "Change", kPrimaryColor, 14.sp, FontWeight.w500),
-                    )
-                  ],
-                ),
-                SizedBox(height: 11.h),
-                customText("John Doe", kTextColor, 14.sp, FontWeight.w400),
-                SizedBox(height: 5.h),
-                customText("97988874", kTextMedium, 14.sp, FontWeight.w400),
-                SizedBox(height: 5.h),
-                customText(
-                    "user@gmail.com", kTextMedium, 14.sp, FontWeight.w400),
-                SizedBox(height: 5.h),
-                customText("Area, Block, Street, Avenue,House, Floor, Flat",
-                    kTextMedium, 14.sp, FontWeight.w400),
-              ],
-            )
+            if (widget.isDelivery)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      customText("Delivery Address", kTextColor, 16.sp,
+                          FontWeight.w600),
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => const AddressList());
+                        },
+                        child: customText(
+                            "Change", kPrimaryColor, 14.sp, FontWeight.w500),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 11.h),
+                  customText("John Doe", kTextColor, 14.sp, FontWeight.w400),
+                  SizedBox(height: 5.h),
+                  customText("97988874", kTextMedium, 14.sp, FontWeight.w400),
+                  SizedBox(height: 5.h),
+                  customText(
+                      "user@gmail.com", kTextMedium, 14.sp, FontWeight.w400),
+                  SizedBox(height: 5.h),
+                  customText("Area, Block, Street, Avenue,House, Floor, Flat",
+                      kTextMedium, 14.sp, FontWeight.w400),
+                ],
+              )
             else
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                customText(
-                    "Pickup Details", kTextColor, 16.sp, FontWeight.w600),
-                SizedBox(height: 11.h),
-                customText("John Doe", kTextColor, 14.sp, FontWeight.w400),
-                SizedBox(height: 5.h),
-                customText("97988874", kTextMedium, 14.sp, FontWeight.w400),
-                SizedBox(height: 5.h),
-                customText(
-                    "user@gmail.com", kTextMedium, 14.sp, FontWeight.w400),
-              ],
-            ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  customText(
+                      "Pickup Details", kTextColor, 16.sp, FontWeight.w600),
+                  SizedBox(height: 11.h),
+                  customText("John Doe", kTextColor, 14.sp, FontWeight.w400),
+                  SizedBox(height: 5.h),
+                  customText("97988874", kTextMedium, 14.sp, FontWeight.w400),
+                  SizedBox(height: 5.h),
+                  customText(
+                      "user@gmail.com", kTextMedium, 14.sp, FontWeight.w400),
+                ],
+              ),
             SizedBox(height: 11.h),
             const Divider(color: border, height: 1),
             SizedBox(height: 11.h),
@@ -170,6 +170,8 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             ),
             SizedBox(height: 11.h),
             const Divider(color: border, height: 1),
+            SizedBox(height: 11.h),
+            customText("Payment Summary", kTextMedium, 16.sp, FontWeight.w600),
             SizedBox(height: 11.h),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
