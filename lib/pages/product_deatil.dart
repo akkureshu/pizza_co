@@ -155,7 +155,7 @@ class _ProductDeatilState extends State<ProductDeatil> {
                     Get.to(() => const CartScreen());
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: kPrimaryColor,
+                    backgroundColor: kPrimaryColor,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.r),

@@ -6,9 +6,14 @@ import 'package:pizza_co/constants.dart';
 import 'package:pizza_co/login/search_area.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
-class VerifyScreen extends StatelessWidget {
+class VerifyScreen extends StatefulWidget {
   const VerifyScreen({Key? key}) : super(key: key);
 
+  @override
+  State<VerifyScreen> createState() => _VerifyScreenState();
+}
+
+class _VerifyScreenState extends State<VerifyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

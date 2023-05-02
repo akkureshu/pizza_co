@@ -4,7 +4,7 @@ import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    backgroundColor: white,
+   
     fontFamily: "RobotoRegular",
     appBarTheme: appBarTheme(),
   );
