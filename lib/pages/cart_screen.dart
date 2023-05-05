@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:pizza_co/components/default_button.dart';
 import 'package:pizza_co/constants.dart';
+import 'package:pizza_co/pages/checkout_screen.dart';
 import 'package:pizza_co/pages/deliveryscreen.dart';
 
 class CartScreen extends StatefulWidget {
@@ -27,7 +29,11 @@ class _CartScreenState extends State<CartScreen> {
         child: SizedBox(
           width: 1.sw,
           height: 52.h,
-          child: DefaultButton(text: "Checkout", press: () {}),
+          child: DefaultButton(
+              text: "Next",
+              press: () {
+                Get.to(() => const CheckoutScreen());
+              }),
         ),
       ),
       body: SafeArea(
@@ -84,8 +90,12 @@ class _CartScreenState extends State<CartScreen> {
                 ),
                 const Expanded(
                   child: TabBarView(children: [
-                    DeliveryScreen(isDelivery: true,),
-                    DeliveryScreen(isDelivery: false,),
+                    DeliveryScreen(
+                      isDelivery: true,
+                    ),
+                    DeliveryScreen(
+                      isDelivery: false,
+                    ),
                   ]),
                 )
               ],

@@ -81,7 +81,7 @@ class SelectLocation extends StatelessWidget {
                               height: 80.h,
                               fit: BoxFit.fill,
                               imageUrl:
-                                  'https://postcode.thepizzacompany.co.uk/DataImages/BranchMaster/item_0_20211222025522931.jpg'),
+                                  'https://d4t7t8y8xqo0t.cloudfront.net/app/eazymedia/restaurant%2F110025%2Frestaurant020160519143002.jpg'),
                         ),
                         SizedBox(width: 10.w),
                         Flexible(

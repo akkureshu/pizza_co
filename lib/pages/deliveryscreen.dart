@@ -141,76 +141,6 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             SizedBox(height: 11.h),
             const Divider(color: border, height: 1),
             SizedBox(height: 11.h),
-            customText("Add promo code", kTextColor, 16.sp, FontWeight.w600),
-            SizedBox(height: 4.h),
-            customText("Get the best discounts with our latest coupons code.",
-                kTextMedium, 12.sp, FontWeight.w400),
-            SizedBox(height: 10.h),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6.r),
-                border: Border.all(width: 1, color: const Color(0xFFF1F1F1)),
-              ),
-              child: Row(
-                children: [
-                  SvgPicture.asset(code, height: 15.h, color: kPrimaryColor),
-                  SizedBox(width: 8.w),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => const CouponScreen());
-                    },
-                    child: customText(
-                        "Use Coupons", kTextColor, 14.sp, FontWeight.w500),
-                  ),
-                  const Spacer(),
-                  const Icon(Icons.delete_forever_outlined, color: Colors.red),
-                ],
-              ),
-            ),
-            SizedBox(height: 11.h),
-            const Divider(color: border, height: 1),
-            SizedBox(height: 11.h),
-            customText("Payment Summary", kTextMedium, 16.sp, FontWeight.w600),
-            SizedBox(height: 11.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("Subtotal", kTextMedium, 14.sp, FontWeight.w400),
-                customText("£ 12.000", kTextMedium, 14.sp, FontWeight.w400),
-              ],
-            ),
-            SizedBox(height: 11.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("Discount", kTextMedium, 13.sp, FontWeight.w400),
-                customText(" £ 3.000", kTextMedium, 13.sp, FontWeight.w400),
-              ],
-            ),
-            SizedBox(height: 11.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("Delivery Fee", kTextMedium, 13.sp, FontWeight.w400),
-                customText(" £ 0.500", kTextMedium, 13.sp, FontWeight.w400),
-              ],
-            ),
-            SizedBox(height: 11.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("Grand Total", kTextMedium, 14.sp, FontWeight.w600),
-                customText("£ 9.500", kTextMedium, 14.sp, FontWeight.w600),
-              ],
-            ),
-            SizedBox(height: 11.h),
-            const Divider(color: border, height: 1),
-            SizedBox(height: 11.h),
             Row(
               children: [
                 customText(
@@ -236,24 +166,32 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             SizedBox(height: 11.h),
             const Divider(color: border, height: 1),
             SizedBox(height: 11.h),
-            customText("Payment Method", kTextColor, 16.sp, FontWeight.w600),
-            SizedBox(height: 11.h),
-            customText("Cash On Delivery", kTextColor, 14.sp, FontWeight.w500),
-            SizedBox(height: 11.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("Credit Card", kTextColor, 14.sp, FontWeight.w500),
-                Image.asset("assets/images/pay-02.png", height: 30.h),
-              ],
-            ),
-            SizedBox(height: 11.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText("PayPal", kTextColor, 14.sp, FontWeight.w500),
-                Image.asset("assets/images/pay-03.png", height: 25.h),
-              ],
+            customText("Add promo code", kTextColor, 16.sp, FontWeight.w600),
+            SizedBox(height: 8.h),
+            customText("Get the best discounts with our latest coupons code.",
+                kTextMedium, 12.sp, FontWeight.w400),
+            SizedBox(height: 10.h),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6.r),
+                border: Border.all(width: 1, color: const Color(0xFFF1F1F1)),
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(code, height: 15.h, color: kPrimaryColor),
+                  SizedBox(width: 8.w),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const CouponScreen());
+                    },
+                    child: customText(
+                        "Use Coupons", kTextColor, 14.sp, FontWeight.w500),
+                  ),
+                  const Spacer(),
+                  const Icon(Icons.delete_forever_outlined, color: Colors.red),
+                ],
+              ),
             ),
           ],
         ),

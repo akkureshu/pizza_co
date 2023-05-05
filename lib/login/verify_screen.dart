@@ -62,15 +62,15 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 onChanged: (value) {
                   if (value.length == 4) {}
                 },
-                decoration: const BoxLooseDecoration(
-                  textStyle: TextStyle(
+                decoration: BoxLooseDecoration(
+                  textStyle: const TextStyle(
                       fontSize: 20,
                       color: Color(0xFF4B4B4B),
                       fontWeight: FontWeight.w400),
                   strokeWidth: 1,
                   gapSpace: 28,
-                  radius: Radius.circular(8),
-                  strokeColorBuilder: FixedColorBuilder(
+                  radius: const Radius.circular(8),
+                  strokeColorBuilder: const FixedColorBuilder(
                     Color(0xFFC3C3C3),
                   ),
                 ),
@@ -80,7 +80,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
             customText(
                 "54s", const Color(0xFFC3C3C3), 20.sp, FontWeight.normal),
             customText(
-                "Resend", const Color(0xFFFCA485), 14.sp, FontWeight.normal)
+                "Resend", const Color(0xFFFCA485), 14.sp, FontWeight.normal),
           ],
         ),
       )),
